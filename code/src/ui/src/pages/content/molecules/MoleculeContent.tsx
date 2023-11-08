@@ -15,6 +15,7 @@ import { AvatarsMolecule } from '../../molecules/AvatarsMolecule';
 import { ButtonsStandardMolecule } from '../../molecules/ButtonsStandardMolecule';
 import { ButtonsSmallMolecule } from '../../molecules/ButtonsSmallMolecule';
 import { CardsMolecule } from '../../molecules/CardsMolecule';
+import { TextFieldMolecule } from '../../molecules/TextFieldMolecule';
 import { DropdownsMolecule } from '../../molecules/DropdownsMolecule';
 import { ImagesMolecule } from '../../molecules/ImagesMolecule';
 import { ToastsMolecule } from '../../molecules/ToastsMolecule';
@@ -39,6 +40,7 @@ const moleculesList: {[key: string]:moleculeItem} = {
     standardButtons: {value: "standardButtons", label: "Buttons - Standard", molecule: "Buttons - Standard", disabled: true},
     smallButtons: {value: "smallButtons", label: "Buttons - Small", molecule: "Buttons - Small", disabled: true},
     standardCards: {value: "standardCards", label: "Cards", molecule: "Cards", disabled: true},
+    standardTextField: {value: "standardTextField", label: "Text Field", molecule: "TextField", disabled: true},
     chips: {value: "chips", label: "Chips", molecule: "Chips", disabled: true},
     dropdowns: {value: "dropdowns", label: "Dropdowns", molecule: "Dropdowns", disabled: true},
     images: {value: "imagesAndVideos", label: "Images", molecule: "Images", disabled: true},
@@ -198,6 +200,7 @@ export const MoleculeContent: React.FC<Props> = ({ user, designSystem }) => {
                             <LeftNavMolecule item={molecules.standardButtons} indent={2} />
                             <LeftNavMolecule item={molecules.smallButtons} indent={2} />
                             <LeftNavMolecule item={molecules.standardCards} indent={2} />
+                            <LeftNavMolecule item={molecules.standardTextField} indent={2} />
                             <LeftNavMolecule item={molecules.chips} indent={2} />
                             <LeftNavMolecule item={molecules.dropdowns} indent={2} />
                             <LeftNavMolecule item={molecules.images} indent={2} />
@@ -247,6 +250,11 @@ export const MoleculeContent: React.FC<Props> = ({ user, designSystem }) => {
                 {showMolecule === molecules.standardCards.value && (
                     <ErrorHandler>
                         <CardsMolecule molecule={designSystem.molecules.standardCards} designSystem={designSystem}/>
+                    </ErrorHandler>
+                )}
+                {showMolecule === molecules.standardTextField.value && (
+                    <ErrorHandler>
+                        <TextFieldMolecule molecule={designSystem.molecules.standardTextField} designSystem={designSystem}/>
                     </ErrorHandler>
                 )}
                 {showMolecule === molecules.chips.value && (
